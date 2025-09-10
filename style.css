@@ -3,3 +3,17 @@
 body{
     font-family: "Inter", sans-serif;
 }
+
+
+#catagoriesItem li {
+    margin-top: 10px;
+    padding: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#catagoriesItem li:hover{
+    background-color: #15803D;
+    color: #ffffff;
+    
+}
