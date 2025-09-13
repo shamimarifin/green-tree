@@ -13,6 +13,8 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
     <!-- Daisy Ui Link -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -107,27 +109,36 @@
           <div class="sectionTitle text-center">
             <h2 class="text-2xl font-bold">Choose Your Trees</h2>
           </div>
-          <div class="boxTrees py-10 flex justify-between md:flex-row gap-2  flex-wrap">
-            <!-- Catagories -->
-            <div class="catagories" id="catagories-list">
-              <h3 class="font-semibold text-xl">Catagories</h3>
-              <ul id="catagoriesItem"> 
-                <li>
-                  <span onclick="loadAllPlants()" id="all-category-btn" class="active">All Trees</span>
-                </li>
-              </ul>
-            </div>
 
-            <!-- Trees Box Container -->
-            <div class="allTrees grid grid-cols-1 md:grid-cols-3 gap-5" id="all-trees">
-           
+          <div class="py-10 flex justify-between gap-2 flex-col md:flex-row">
+            <!-- Categories -->
+             <div>
+              <h2 class="text-xl py-2">Categories</h2>
+                <ul id="categories">
+                    <li><span id="all-category-btn" class="active" onclick="loadAllTree()">All Trees</span></li>
+                </ul>
+             </div>
 
-            </div>
-            <!-- Add to Cart Area -->
-            <div class="addToCart">
-                <h2>Your Cart</h2>
-            </div>
+             <!-- All Tree Shows -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2" id="plant-container">
+
+              </div>
+
+              <!-- Add to cart -->
+               <div class="bg-white w-50 p-2 rounded-xl place-self-start h-40">
+                <h2 class="font-bold text-xl">Your Cart</h2>
+                    <div id="add-to-cart-container" class="border-b-2 py-4 space-y-4">
+                        <!-- load dynamically -->
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold">Total</h2>
+                        <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span id="total">0</span></p>
+                    </div>
+               </div>
           </div>
+
+         
+
         </div>
       </section>
     </main>
