@@ -29,6 +29,7 @@ const loadByCategory = (id)=> {
   fetch(url)
   .then((res) => res.json())
   .then((data) =>{
+  
         removeActive()
             // select clicked button
             const buttonNum = document.querySelector(`#button-${id}`);
@@ -36,6 +37,9 @@ const loadByCategory = (id)=> {
 
     displayCategoryPlants(data.plants)
   })
+
+  
+
 }
 
 const displayCategoryPlants = (plants) => {
@@ -68,6 +72,9 @@ const displayCategoryPlants = (plants) => {
               </div> `
       plantContainer.append(plantCard)
   }
+
+
+
 }
 
 const removeActive = ()=> {
@@ -88,6 +95,7 @@ const removeActive = ()=> {
 
 // Show Model
 const loadPlantDetail = (id) => {
+
   const url = `https://openapi.programming-hero.com/api/plant/${id}`
   fetch(url)
   .then((res) => res.json())
@@ -117,7 +125,9 @@ const displayModal = (plants) => {
 
 // Load All Trees
 const loadAllTree = ()=> {
+
   const url = 'https://openapi.programming-hero.com/api/plants'
+  
 
   fetch(url)
   .then((res)=> res.json())
@@ -166,6 +176,9 @@ const displayAllTrees = (plants) => {
 
               plantContainer.append(plantCard)
     }
+
+
+
 }
 
 
