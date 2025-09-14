@@ -54,7 +54,7 @@ const displayCategoryPlants = (plants) => {
                     src="${plant.image}"  class="h-[200px] w-full object-cover"/>
                 </figure>
                 <div class="card-body">
-                  <h2 class="card-title">${plant.name}</h2>
+                  <h2 class="card-title pointer" onclick="loadPlantDetail(${plant.id})">${plant.name}</h2>
                   <p>
                      ${plant.description}
                   </p>
@@ -82,6 +82,36 @@ const removeActive = ()=> {
     categoryButton.forEach(btn => {
         btn.classList.remove("active")
     })
+}
+
+
+
+// Show Model
+const loadPlantDetail = (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`
+  fetch(url)
+  .then((res) => res.json())
+  .then((data) => displayModal(data.plants))
+}
+
+const displayModal = (plants) => {
+  const modalBox = document.getElementById('modal-container')
+  modalBox.innerHTML = `<div class="space-y-2">
+                  <h2 class="text-xl font-bold">${plants.name}</h2>
+                                        <img class="w-full h-[180px] rounded-lg object-cover" src="${plants.image}" alt="">
+                                        <p class="">${plants.category}</p>
+                                        <p class="text-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${plants.price}</span></p>
+                                        <p class="text-sm ">${plants.description}</p>
+                                        <div class="modal-action"> 
+                                            <form method="dialog">
+                                                <!-- if there is a button in form, it will close the modal -->
+                                                <button class="btn">Close</button>
+                                            </form>
+                                        </div>
+                      </div>`
+
+  document.getElementById('my_modal').showModal()
+
 }
 
 
@@ -121,7 +151,7 @@ const displayAllTrees = (plants) => {
                     src="${plant.image}"  class="h-[200px] w-full object-cover"/>
                 </figure>
                 <div class="card-body">
-                  <h2 class="card-title">${plant.name}</h2>
+                  <h2 class="card-title" onclick="loadPlantDetail(${plant.id})">${plant.name}</h2>
                   <p>
                      ${plant.description}
                   </p>
